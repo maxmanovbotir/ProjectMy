@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/materialize.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="{{ path('homepage') }}" class="brand-logo">Asosiy sahifa</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{ path('test_new') }}">Ro`yxatdan o`tish</a></li>
+            <li><a href="{{ path('test_number') }}">Foydalanuvchilar</a></li>
+        </ul>
+    </div>
+</nav>
+{% block body %}{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/materialize.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{% endblock %}
+</body>
+</html>

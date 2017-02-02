@@ -1,0 +1,36 @@
+{# app/Resources/views/default/new.html.twig #}
+{% extends 'base.html.twig' %}
+   {% block body %}
+
+       <h4 class="center-align">
+           Foydalanuvchilar ro`yxati
+       </h4>
+       <a href={{ path('test_new') }} class='waves-effect waves-light btn'>Qo`shish</a>
+       <hr/>
+       <table class="bordered striped centered">
+           <thead>
+           <tr>
+               <th data-field="id">T/R</th>
+               <th data-field="id">Login</th>
+               <th data-field="name">FIO</th>
+               <th data-field="name" colspan="2">Action</th>
+           </tr>
+           </thead>
+           {% for key, item in user %}
+               <tbody>
+               <tr>
+                   <td>{{ key+1 }}</td>
+                   <td>{{ item.username|e }}</td>
+                   <td>{{ item.initial|e }}</td>
+                   <td>
+                       <a href={{ path('test_update', {'id': item.id} ) }}><i class="mode_edit material-icons"></i>Update</a>
+                  </td>
+                   <td>
+                       <a href={{ path('test_delete', {'id': item.id} ) }}><i class="note_add material-icons"></i>Delete</a>
+                   </td>
+               </tr>
+               </tbody>
+           {% endfor %}
+       </table>
+       {{ dump(user) }}
+   {% endblock %}
